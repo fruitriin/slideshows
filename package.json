@@ -1,0 +1,14 @@
+{
+  "name": "VuePressOnGithubPagesTemplate",
+  "version": "1.0.0",
+  "scripts": {
+    "docs:dev": "vuepress dev docs",
+    "docs:build": "vuepress build docs"
+  },
+  "devDependencies": {
+    "dotenv": "^5.0.1",
+    "vuepress": "^0.8.4",
+    "yarn": "^1.6.0"
+  },
+  "license": "MIT"
+}
