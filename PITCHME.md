@@ -1,199 +1,272 @@
----?image=assets/cover.jpg&size=cover
+# Vue.js ハンズオン!
+## 付録 - 初学者へ贈るコツ
+果物リン@FruitRiin
+<div class="date"> 2018/05/25 - nakameguro.php #03</div>
 
-# gitpitch-azusa
-
-2017.07.29 TokyuRubyKaigi
-
-[@yhirano55](https://github.com/yhirano55)
 
 ---
 
-# [@yhirano55](https://github.com/yhirano55)
-
-![](assets/thumb.png)
-
-- Freelancer from 鎌倉
-- Organizer [\#railsdm](https://rails-developers-meetup.connpass.com/)
+### \#nakameguro_php
 
 ---
 
-# [GitPitch](https://gitpitch.com/)
-
-## 使用したことありますか!?
-
----
-
-![](assets/gitpitch.png)
+## ES6入門
+- 今までjQueryしか触ったことがない？
+- つ [ES2015\(ES6\) 入門 \- Qiita](https://qiita.com/soarflat/items/b251caf9cb59b72beb9b)
 
 ---
 
-# 使い方
+## 小さく始める
 
-1. リポジトリのルートに `PITCHME.md` を作成
-2. ホストを `github.com` から `gitpitch.com` に変更
-3. Revael.jsのスライドが表示される
+- 要らないライブラリは入れない
+  - vue-routerもvuexも最初は入れない！
+- コンポーネントも分割しない
+- まず雰囲気をつかむ！
 
----
+--- 
 
-# よさ
-
-- 内部は [Reveal.js](http://lab.hakim.se/reveal-js/#/)
-- `PITCHME.md` を置くだけ
-- セットアップらくちん
-- ブランチでプレゼン切替可能
-- [Wiki](https://github.com/gitpitch/gitpitch/wiki)が充実している
-
----
-
-# わるさ
-
-- カスタマイズ必須
-- 日本語フォント考慮なし
-- PDFのフォントやばい
-- [Wiki](https://github.com/gitpitch/gitpitch/wiki)を読むの大変
+## 大きくする
+- 別のプロジェクトをvue-cliで参考にする
+ - コンポーネントの分割にトライ！
+ - vue-routerを入れてプロジェクトを見比べる
+ - vuexも同様に（一度にやらない）
 
 ---
+## 省略記法
 
-# とはいえ<br>使ってみると<br>便利なので
-
----
-
-## 日本語フォントを考慮し
-# AZUSA化してみた
-
----
-
-# [AZUSA?](http://sanographix.github.io/azusa-colors/)
+- v-bind:property = :property
+ - :value とか
+ - :style はオブジェクトを渡してもOK
+- v-on:click = @click
+ - v-on のショートハンドが@
 
 ---
+## v- と文字列
 
-![](assets/azusa.png)
-
-CREATED & MAINTAINED BY [@SANOGRAPHIX](http://www.sanographix.net/)
-
----
-
-# Keynote用
-# 定番 && 鉄板
-# テンプレート
-
----
-
-# 配色
-
-<table style="border: 3px solid #fff;table-layout: fixed;">
-  <tr>
-    <td style="background: #1ca8f4;text-align: center;">BLUG</td>
-    <td style="background: #1fbbd4;text-align: center;">CIAN</td>
-    <td style="background: #32b490;text-align: center;">GREEN</td>
-    <td style="background: #3e4057;text-align: center;">NAVY</td>
-  </tr>
-  <tr>
-    <td style="background: #fd9026;text-align: center;">ORANGE</td>
-    <td style="background: #fc3f80;text-align: center;">PINK</td>
-    <td style="background: #b867c6;text-align: center;">PURPLE</td>
-    <td style="background: #fc5152;text-align: center;">RED</td>
-  </tr>
-</table>
-
----?image=bg/blue.png
-
-# コード
-
-```ruby
-require "active_support"
-require "active_support/rails"
-require_relative "action_cable/version"
-
-module ActionCable
-  extend ActiveSupport::Autoload
-
-  INTERNAL = {
-    message_types: {
-      welcome: "welcome".freeze,
-      ping: "ping".freeze,
-      confirmation: "confirm_subscription".freeze,
-      rejection: "reject_subscription".freeze
-    },
+- v-bind, v-on etc... はJS式としてパース
+ - 文字列は 'シングルクォート' でくくる
+```
+<ul>
+ <li v-bind:class="'type-' + n" v-for="n in list">{{n}}</li>
+</ul>
 ```
 
----?image=bg/cian.png
+---?image=bg/navy.png
 
-# 引用
+## 意外な罠
+- dataは関数にしなければならない
+- **dataをアロー関数にしてはならない**
+  - スコープがすっぽ抜けて悩みます 😇
+- methods, computed etc も同様
 
-> あのイーハトーヴォのすきとおった風、夏でも底に冷たさをもつ青いそら、うつくしい森で飾られたモリーオ市...
+---
 
----?image=bg/green.png
+## コンポーネントの設計
+### Atomicデザインがよさそう
+- [Atomic Design を分かったつもりになる \| DeNA DESIGN BLOG](http://design.dena.com/design/atomic-design-%E3%82%92%E5%88%86%E3%81%8B%E3%81%A3%E3%81%9F%E3%81%A4%E3%82%82%E3%82%8A%E3%81%AB%E3%81%AA%E3%82%8B/)
+- [Vue\.js からみた AtomicDesign – Takanori Sugawara – Medium](https://medium.com/@t_sugawara/vue-js-%E3%81%8B%E3%82%89%E3%81%BF%E3%81%9F-atomicdesign-e90517842801)
 
-# リスト
+---
 
-1. 最初のアイテム
-2. 異なるアイテム
-  * サブリスト
-1. 実際とは異なる番号
-  1. サブリスト
-4. 最後のアイテム
+## モジュールの紹介
 
----?image=bg/orange.png
+- あとからモジュールを追加して機能が増える！
+- 独断と偏見で定番のやつとかピックアップ
 
-# テーブル
+---
+### vue-router
 
-| Tables        | Are           | Cool  |
-| ------------- |:-------------:| -----:|
-| col 3 is      | right-aligned | $1600 |
-| col 2 is      | centered      |   $12 |
-| zebra stripes | are neat      |    $1 |
+- Vue.jsにルーティング機能を提供
+ - 公式ライブラリ！
+- 「URLで表示を切り替えたい！」
+- URLとパラメータをハンドリング
+- 変数 ←→ URL
 
----?image=bg/pink.png
+--- 
 
-# インライン画像
+### Vuex
 
-![](assets/inline-image.jpg)
+- Flexのデータストア
+- コンポーネント間でデータをやりとり
+- Vueのために作られているのでReduxより簡単
+- TypeScript？知らない子ですね……
+ - 補完の効き具合がいまいちらしい
+---
 
----?image=assets/background.jpg&size=cover
+### Nuxt.js
 
-# 背景画像
+- Vue.js でSSRするためのフレームワーク
+- 色々なモジュール全部入りでレールに乗る
+- 今めちゃくちゃアツいらしい
+- インストールはvue-cliから
 
----?image=bg/green.png
+ ```
+ vue init nuxt-community/starter-template <project-name>
+ ```
 
-# 背景画像の<br>指定方法
+---
+## UIコンポーネント
 
----?image=bg/green.png
+- パーツ単位で「コンポーネント化」できる
+- 「コンポーネントを共有しようぜ」「それだ」
 
-    ---?image=bg/blue.png
 
-    # Languages
+---
+### Element UI
 
-    ## Japanese
+- 定番のUIコンポーネント集
+- 高機能で使いやすい！
+ - レイアウト、メニュー
+ - ボタン、フォーム、スイッチ、スライダー
+ - タイムピッカー、カレンダー
+ - アップローダー
 
-hrにクエリを追加するだけ
+などなど。 26k stars 
 
----?image=bg/cian.png
+---
 
-# オフライン編集
+### BootstrapVue
 
----?image=bg/cian.png
+- Bootstrap 4をVueで！
+ - Bootstrapにあるコンポーネントをリメイク
+ - ちゃんとVueのコンポーネント
+ - 実はjQueryに依存してない！
+ 
+ 5k stars 
 
-![](assets/offline.png)
+---
 
-フッターから `PITCHME.zip` をダウンロード
+## 既存のサイトにVue.jsを導入
 
----?image=bg/cian.png
+---
+
+### インラインでも使える
 
 ```
-$ ruby -rwebrick -e'WEBrick::HTTPServer.new(:Port => 3000, :DocumentRoot => Dir.pwd).start'
+<head>
+  <!-- 本番バージョン、サイズと速度のために最適化されています -->
+  <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+</head>
+<body>
+<div id="app">
+  {{ message }}
+</div>
+<!-- エントリポイントのあとに読み込む -->
+<script src="app.js"></script>
 ```
 
-Zipを解凍してサーバーを起動
+---
 
----?image=bg/pink.png
+### app.js サンプル
 
-# Forkするだけで
-# すぐに使えます
+```
+var app = new Vue({
+  el : "#app",
+  data: {
+    message: 'Hello Vue!'
+  }
+})
 
-### [yhirano55/gitpitch-azusa](https://github.com/yhirano55/gitpitch-azusa)
+```
+#app 内のDOMに書かれたVueSyntaxが展開される
 
----?image=bg/pink.png
 
-# ご静聴有難う
-# ございました
+---
+
+### テンプレートもOK
+
+```
+var app = new Vue({
+  el : "#app",
+  data: {
+    message: 'Hello Vue!'
+  },
+  template: `
+    <p>template say {{ message }}</p>
+  `
+})
+```
+
+コンポーネントもOK
+
+
+---
+
+### 制限
+- ES6が使えないとつらい
+ - テンプレートにテンプレートリテラルほしい
+ - 配列操作やajaxとかにアロー関数使いたい
+- Scoped CSSは？
+ - そんなものはない
+- Webpackもない
+ - ちょっとパッケージを入れてとかできない
+- HMRとかもない
+
+---
+### 制限2
+- JSでDOMを直接書き換えると非常に危険
+ - **Vueのライフサイクルに巻き込まれて吹き飛ぶ**
+
+---
+### 直接のDOM操作で壊れる
+
+```
+Virtual DOMの基本アプローチは仮想DOM -> 生のDOM変換であり、
+この手続に依存する限り生DOMを触ることは推奨されません。
+patchに巻き込まれると、知らないうちに
+イベントハンドラごと吹き飛ぶ可能性があります。
+しかも内部のアルゴリズムに依存するので非常にデバッグ困難です。
+```
+
+> [なぜ仮想DOMという概念が俺達の魂を震えさせるのか \- Qiita](https://qiita.com/mizchi/items/4d25bc26def1719d52e6) by mizuchi
+
+---
+
+### 結論＝できるよ！
+
+あまりオススメしない
+
+---
+
+## LaravelでVue.js
+
+- ステップバイステップな記事を書いた  
+[LaravelからVue\.jsを使う最短レシピとTips \- Qiita](https://qiita.com/fruitriin/items/e0f2c9aa035c3ff2c874)
+- 割りとチョロい
+- LaravelはDBを扱うAPIを生やすといい感じ
+
+---
+
+## RailsでVue.js
+
+- Rails Wayではない＝かなりつらいという噂
+- APIサーバーとして使うなら問題なさそう
+- Rails Webpackerとかあるけどつらそう
+ - ついでにあまり旨味もなさそう
+
+---
+
+### サーバーに求められるもの
+
+- もはやJSONを返せればなんでもいいらしい
+- 今のご時世ブラウザはJS支配。
+
+---
+
+## npm packageのイケてるやつ
+
+- Rodash - 関数型配列操作など
+- moment.js - 時間関係のパーサ、コンバータ
+- string.js - Stringクラスの強いやつ
+- URI.js - URIやクエリストリングを扱う
+- store.js - LocalStorageのwrapper
+
+---
+~~Rodashとmomentしかまだ使ったことがない~~
+
+---
+
+### Vue.jsはいいぞ 
+
+---
+# Thanks 

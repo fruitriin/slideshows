@@ -1,36 +1,27 @@
-# gitpitch-azusa
+# Vue.js ハンズオン！ 付録 - 初学者へ贈るコツ
+2018/05/25 - nakameguro.php #3
 
-[![GitPitch](https://gitpitch.com/assets/badge.svg)](https://gitpitch.com/yhirano55/gitpitch-azusa/master?grs=github&t=white)
-
-:tropical_drink:The Presentation Template which inspired by [Azusa](http://sanographix.github.io/azusa-keynote/) for [GitPitch](https://gitpitch.com/).
-
-<a href="https://gitpitch.com/yhirano55/gitpitch-azusa/master?grs=github&t=white"><img src="https://raw.githubusercontent.com/yhirano55/gitpitch-azusa/master/assets/slide.jpg" width="600" height="336" /></a>
-
-The following <strong>[sample presentation](https://gitpitch.com/yhirano55/gitpitch-azusa/master?grs=github&t=white)</strong> is provided so you can see this feature in action.
-
-## Usage
-
-1. Fork it
-2. Access `https://gitpitch.com/#{username}/gitpitch-azusa/#{branch}`
-
-## Change background-color
-
-Background-colors are all image files. Default color is navy. You can select background-color like this:
-
-    ---?image=bg/blue.png
-
-    # ^ Please use custom delimiter.
-
-## Offline
-
-1. Click `offline` in footer of GitPitch presentation.
-2. Download `PITCHME.zip`
-3. Uncompress `PITCHME.zip`
-4. Run HTTP Server:
-
-  ```
-  $ ruby -rwebrick -e'WEBrick::HTTPServer.new(:Port => 3000, :DocumentRoot => Dir.pwd).start'
-  ```
+### アジェンダ
+- ES6入門
+- 小さく始める
+- 大きくする
+- 省略記法
+- v- と文字列
+- 意外な罠
+- コンポーネントの設計
+- モジュールの紹介
+ - vue-route
+ - Vuex 
+ - Nuxt.js
+- UIコンポーネント
+ - Element UI
+ - BootstrapVue
+- 既存のサイトにVue.jsを導入
+ - やり方
+ - 制限
+- LaravelでVue.js
+- Ruby on RailsでVue.js（に対する所感）
+- npm package
 
 ## References
 
@@ -43,6 +34,7 @@ Background-colors are all image files. Default color is navy. You can select bac
 - [更に大体いい感じになるkeynoteテンプレート「Azusa Colors」作った - MEMOGRAPHIX](http://memo.sanographix.net/post/113681262780)
 - [Azusa Colors Keynote Theme by sanographix](http://sanographix.github.io/azusa-colors/)
 - [sanographix/azusa-keynote: 大体いい感じになるKeynoteテンプレート](https://github.com/sanographix/azusa-keynote)
+- [gitpitch\-azusa/PITCHME\.md at master · yhirano55/gitpitch\-azusa](https://github.com/yhirano55/gitpitch-azusa/blob/master/PITCHME.md)
 
 ## License
 
