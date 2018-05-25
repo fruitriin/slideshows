@@ -1,199 +1,185 @@
----?image=assets/cover.jpg&size=cover
-
-# gitpitch-azusa
-
-2017.07.29 TokyuRubyKaigi
-
-[@yhirano55](https://github.com/yhirano55)
+## 私がハマった<br>Vue.jsのショボいミス
+<center>果物リン@fruitriin</center>
+<div class="footer">2018/06/某日</div>
 
 ---
 
-# [@yhirano55](https://github.com/yhirano55)
+### 自己紹介 果物リン@fruitriin
 
-![](assets/thumb.png)
-
-- Freelancer from 鎌倉
-- Organizer [\#railsdm](https://rails-developers-meetup.connpass.com/)
-
----
-
-# [GitPitch](https://gitpitch.com/)
-
-## 使用したことありますか!?
+- 株式会社ORATTA所属  
+ソーシャルゲーム開発・運営
+- サーバーサイドエンジニア  
+ぺちぺちしている
+- JSが好き  
+Vue.jsはいいぞ！
 
 ---
 
-![](assets/gitpitch.png)
+## 流石にしょぼすぎて<br>誰もかかないことを<br>あえて書く！
+
+---
+## Case1. ESLintうざい
+- vue-cliが入れる？って聞かれたから入れてみた
+- とにかく全部指摘されてうざい
+- こういうもんなの？
+
+**eslint --fixで自動整形とかできます**  
+**詳しくはWebで！**  
+<div class="footer">*それはそれでやっぱりちょっとうざい*</div>
 
 ---
 
-# 使い方
+## Case2. アロー関数とスコープ
 
-1. リポジトリのルートに `PITCHME.md` を作成
-2. ホストを `github.com` から `gitpitch.com` に変更
-3. Revael.jsのスライドが表示される
+- ES6だし関数全部アロー関数で書いてみようぜ！
+- methods直下etcで アロー関数使ってみた
+- dataにthis.hogeで値を取ろうとして undefiend
 
----
-
-# よさ
-
-- 内部は [Reveal.js](http://lab.hakim.se/reveal-js/#/)
-- `PITCHME.md` を置くだけ
-- セットアップらくちん
-- ブランチでプレゼン切替可能
-- [Wiki](https://github.com/gitpitch/gitpitch/wiki)が充実している
-
----
-
-# わるさ
-
-- カスタマイズ必須
-- 日本語フォント考慮なし
-- PDFのフォントやばい
-- [Wiki](https://github.com/gitpitch/gitpitch/wiki)を読むの大変
-
----
-
-# とはいえ<br>使ってみると<br>便利なので
-
----
-
-## 日本語フォントを考慮し
-# AZUSA化してみた
-
----
-
-# [AZUSA?](http://sanographix.github.io/azusa-colors/)
-
----
-
-![](assets/azusa.png)
-
-CREATED & MAINTAINED BY [@SANOGRAPHIX](http://www.sanographix.net/)
-
----
-
-# Keynote用
-# 定番 && 鉄板
-# テンプレート
-
----
-
-# 配色
-
-<table style="border: 3px solid #fff;table-layout: fixed;">
-  <tr>
-    <td style="background: #1ca8f4;text-align: center;">BLUG</td>
-    <td style="background: #1fbbd4;text-align: center;">CIAN</td>
-    <td style="background: #32b490;text-align: center;">GREEN</td>
-    <td style="background: #3e4057;text-align: center;">NAVY</td>
-  </tr>
-  <tr>
-    <td style="background: #fd9026;text-align: center;">ORANGE</td>
-    <td style="background: #fc3f80;text-align: center;">PINK</td>
-    <td style="background: #b867c6;text-align: center;">PURPLE</td>
-    <td style="background: #fc5152;text-align: center;">RED</td>
-  </tr>
-</table>
-
----?image=bg/blue.png
-
-# コード
-
-```ruby
-require "active_support"
-require "active_support/rails"
-require_relative "action_cable/version"
-
-module ActionCable
-  extend ActiveSupport::Autoload
-
-  INTERNAL = {
-    message_types: {
-      welcome: "welcome".freeze,
-      ping: "ping".freeze,
-      confirmation: "confirm_subscription".freeze,
-      rejection: "reject_subscription".freeze
+---?image=bg/navy.png
+### サンプルコード
+```
+var app = new Vue({
+  data: () => { 
+    return { msg : "Hello Vue"}
+  },
+  methods:{
+    myFunc: ()=>{
+      console.log(this.msg)
     },
+  })
+})
+```
+@[2-4](これはセーフっぽい？)
+@[6-8](この書き方に注目！)
+
+---?image=bg/navy.png
+### call myFunc
+```
+<button v-on:click="myFunc">{{msg}}</div>
 ```
 
----?image=bg/cian.png
+→ undefiend
 
-# 引用
+---?image=bg/navy.png
+### メソッドが this. でアクセスできない
+<center>
+![](assets/598x375xe4022b20b838933f265c1591.jpg)
 
-> あのイーハトーヴォのすきとおった風、夏でも底に冷たさをもつ青いそら、うつくしい森で飾られたモリーオ市...
+</center>
 
----?image=bg/green.png
+---
 
-# リスト
+### どういうこと？
+- アロー関数は this を束縛しない
+- 本来はthisをこのコンポーネントで束縛したい
 
-1. 最初のアイテム
-2. 異なるアイテム
-  * サブリスト
-1. 実際とは異なる番号
-  1. サブリスト
-4. 最後のアイテム
+→ this が親スコープを指す
 
----?image=bg/orange.png
+---
 
-# テーブル
+### data, methodsの正しい使い方
+```
+var app = new Vue({
+  data: function() { 
+    return { msg: "Hello Vue"}
+  },
+  methods:{
+    myFunc(){
+      console.log(this) 
+    },
+  })
+})
+```
+@[2-5](プロパティ = 関数として定義する記法)
+@[7-0](クラスのメソッド風として定義する記法)
 
-| Tables        | Are           | Cool  |
-| ------------- |:-------------:| -----:|
-| col 3 is      | right-aligned | $1600 |
-| col 2 is      | centered      |   $12 |
-| zebra stripes | are neat      |    $1 |
+アロー関数を使わない方法二通り
 
----?image=bg/pink.png
+---
 
-# インライン画像
-
-![](assets/inline-image.jpg)
-
----?image=assets/background.jpg&size=cover
-
-# 背景画像
-
----?image=bg/green.png
-
-# 背景画像の<br>指定方法
-
----?image=bg/green.png
-
-    ---?image=bg/blue.png
-
-    # Languages
-
-    ## Japanese
-
-hrにクエリを追加するだけ
-
----?image=bg/cian.png
-
-# オフライン編集
-
----?image=bg/cian.png
-
-![](assets/offline.png)
-
-フッターから `PITCHME.zip` をダウンロード
-
----?image=bg/cian.png
+### アロー関数の使い所
 
 ```
-$ ruby -rwebrick -e'WEBrick::HTTPServer.new(:Port => 3000, :DocumentRoot => Dir.pwd).start'
+data() {
+  return { hoge: "fuga"}
+}
+methods: {
+  myFunc(data){
+    axios.post("http://example.com/sampleApi",(res)=>{
+      console.log(res)
+      console.log(this.hoge);
+    })
+  }
+}
 ```
+コールバックとかに使うといいぞ！
+@[6-9](コールバックにアロー関数)
+@[2,8](thisでhogeにアクセスできる)
 
-Zipを解凍してサーバーを起動
+---
+### Case3.単数形と複数形の間違い
+- propで呼び出し元から値を受け取ろう
+- あれ？絶対あるはずのものがない
+- あれ？あれ？あれれれ？
 
----?image=bg/pink.png
+**正しいエントリポイントは  
+props, components, methods等です**  
+*間違えてもなんの警告もでない*
 
-# Forkするだけで
-# すぐに使えます
+---
 
-### [yhirano55/gitpitch-azusa](https://github.com/yhirano55/gitpitch-azusa)
+### Case4. メソッドの階層間違い
+- 新しいメソッドを生やそう
+- あれ？絶対あるはずのものがない
+- あれ？あれ？あれれれ？
 
----?image=bg/pink.png
+**methodsの直下が各メソッドの正しいエントリポイントです**  
+*うっかりメソッドを生やす階層を間違えた*
 
-# ご静聴有難う
-# ございました
+---
+
+### Case5. 「Main」コンポーネント
+- なんかVue.js側が使ってるらしくてうまくいかない？
+- 特にエラーも出ずにただ使えなかった気がする
+- 前述の"Component"って書いてたせいのような気もしてきた。あとで試す
+
+---
+
+### Case6. or more...
+- 何かあるたびに追加していきます
+
+---
+
+## それでも<br>Vue.jsはいいぞ
+
+---
+
+## Thanks.
+
+<style>
+.footer{
+    display:block;
+    position:relative;
+    bottom:0em;
+    right:1em;
+    float:right;
+}
+.slides section{
+    text-align:left;
+}
+.slides section h1, .slides section h2, 
+.slides section h3, .slides section h4,
+ .slides section h5, .slides section h6
+{
+    text-align:center;
+}
+.right{
+    text-align:right;
+}
+.layout-right{
+    float:right;
+}
+.layout-left{
+    float:left;
+}
+</style>
