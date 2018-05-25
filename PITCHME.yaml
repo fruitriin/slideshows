@@ -3,3 +3,4 @@ transition: slide
 footnote: "© 2018 FruitRiin All Rights Reserved."
 theme-override: assets/PITCHME.css
 slide-number : true
+published : true
