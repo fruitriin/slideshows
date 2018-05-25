@@ -1,5 +1,5 @@
-background: bg/navy.png
+background: bg/green.png
 transition: slide
-theme: black
-footnote: "© 2017 YourName All Rights Reserved."
+footnote: "© 2018 FruitRiin All Rights Reserved."
 theme-override: assets/PITCHME.css
+slide-number : true

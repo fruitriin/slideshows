@@ -1,36 +1,21 @@
-# gitpitch-azusa
+# Vue.js ハンズオン！
+2018/05/25 - nakameguro.php #3
 
-[![GitPitch](https://gitpitch.com/assets/badge.svg)](https://gitpitch.com/yhirano55/gitpitch-azusa/master?grs=github&t=white)
+### アジェンダ
+- Vue.js環境構築
+- Vue.jsはここがすごい
+- Vue.jsハンズオン！
+ - リアルタイム更新
+ - データバインド
+ - メソッドの利用
+ - 表示・非表示
+ - 配列の操作
+ - オブジェクト操作
 
-:tropical_drink:The Presentation Template which inspired by [Azusa](http://sanographix.github.io/azusa-keynote/) for [GitPitch](https://gitpitch.com/).
+### コードサンプル
 
-<a href="https://gitpitch.com/yhirano55/gitpitch-azusa/master?grs=github&t=white"><img src="https://raw.githubusercontent.com/yhirano55/gitpitch-azusa/master/assets/slide.jpg" width="600" height="336" /></a>
-
-The following <strong>[sample presentation](https://gitpitch.com/yhirano55/gitpitch-azusa/master?grs=github&t=white)</strong> is provided so you can see this feature in action.
-
-## Usage
-
-1. Fork it
-2. Access `https://gitpitch.com/#{username}/gitpitch-azusa/#{branch}`
-
-## Change background-color
-
-Background-colors are all image files. Default color is navy. You can select background-color like this:
-
-    ---?image=bg/blue.png
-
-    # ^ Please use custom delimiter.
-
-## Offline
-
-1. Click `offline` in footer of GitPitch presentation.
-2. Download `PITCHME.zip`
-3. Uncompress `PITCHME.zip`
-4. Run HTTP Server:
-
-  ```
-  $ ruby -rwebrick -e'WEBrick::HTTPServer.new(:Port => 3000, :DocumentRoot => Dir.pwd).start'
-  ```
+リポジトリのsrcディレクトリの下に各サンプルがあります。  
+App.vueにコピペすると動くと思います。
 
 ## References
 
@@ -43,6 +28,7 @@ Background-colors are all image files. Default color is navy. You can select bac
 - [更に大体いい感じになるkeynoteテンプレート「Azusa Colors」作った - MEMOGRAPHIX](http://memo.sanographix.net/post/113681262780)
 - [Azusa Colors Keynote Theme by sanographix](http://sanographix.github.io/azusa-colors/)
 - [sanographix/azusa-keynote: 大体いい感じになるKeynoteテンプレート](https://github.com/sanographix/azusa-keynote)
+- [gitpitch\-azusa/PITCHME\.md at master · yhirano55/gitpitch\-azusa](https://github.com/yhirano55/gitpitch-azusa/blob/master/PITCHME.md)
 
 ## License
 
