@@ -1,6 +1,8 @@
 # Vue.js ハンズオン!
 果物リン@FruitRiin
-<div class="date"> 2018/05/25 - nakameguro.php #03</div>
+<div class="date"> 2018/05/25 - nakameguro.php #03<br>
+修正:2018/06/06</div>
+
 
 Note:
 ・Vue.js ハンズオンということで  
@@ -21,155 +23,6 @@ Note:
  
  <div style="text-align:right">\#nakameguro_php</div>
 
----?image=bg/orange.png
-## 突然ですが
-
----?image=bg/orange.png
-
-## アンケートします。
-Note: 
-・ハンズオンなのでレベル感をちょっと知りたい  
-・参考程度なので気楽に  
-・質問は４つ  
-
----?image=bg/orange.png
-
-### プログラミング経験は？
-
-- 概ね日常的に使う
- - 仕事/OSS
- - 趣味で作ったものをリリースした
-- やってたことがある
-- 勉強中
-
-Note:
-・プログラミング勉強中っていう人がここに来てたらちょっと驚く  
-・もしいたらこの場で色々得て帰ってほしい
-
-
----?image=bg/orange.png
-### 使えるプログラミング言語は？
-
-- JavaScript
-- PHP
-- Ruby
-- Go
-- Java/C#
-- その他
-
-Note:
-・使えるっていうレベルも曖昧だけど  
-・まあ基本的なシンタックスわかるよ、くらいで  
-・ここはnakameguro.phpですよ
-
----?image=bg/orange.png
-
-### JavaScript の経験は？
-
-- これから挑戦します
-- jQuery使ってました
-- ES6(or later)はいいぞ　　
-
-
-- node.js おいしいです
-- React 使ってます
-- Angular 使っています
-- Vue.js 使ってます
-
-Note:
-・これから、jQUery使ってました  
-　・ES6入門っていう記事をざっと目を通して一旦置いとくといいよ  
-　・JavaScriptの規格にバージョンがあってそれをEcmaScriptっていう  
-　・ハンズオン中普通にES6シンタックスが出てくるけどわからなければそのまま書いてほしい  
-　・InteliJのIDE使ってたらデフォルトES5で怒られるかも。ES6に書き換えよう  
-
-・フレームワークの話です  
-・React/Angularの人はなぜ今回聞きにきてくれたのか気になる  
-・Vueの人は当たり前すぎてそんなに価値ないと思う  
-
----?image=bg/orange.png
-### 本日の手元のOSは？
-
-- Windows
-- Mac
-- Unix/Linux
- - WSL/Docker は便宜上ここに含めます
-
-Note:
-Windowsの人がいたらどうしよう  
-ちなみにWSLの人います？
-
----?image=bg/orange.png
-
-### アンケートは以上です
-
-Note:
-なお、個人的な興味も含んでいます。
-
----
-
-# Vue.js ハンズオン
-
-https://github.com/fruitriin/slideshows/tree/vueJsHandsOn
-
-Note:
-やっていき
-
----?image=bg/navy.png
-### 必須環境
-
-- npm がインストールされている
-- **npmにパスが通っている**
- - npm -v
-- **globalのnode_modules/.binにパスが通っている**
- 
-```
-#今回だけnode_modules/.binのパスを通すなら
-SET PATH=$PATH:`npm bin -g`
-```
-
----
-
-### 推奨環境
-- Mac/Linux OSであること
- - Windowsは大変かも？
-
----
-
-### いきなりですがvue-cliインストール
-- 発表と平行して環境構築
-- ダウンロードに時間がかかると予想中
-- うまくできない人は手をあげて！
-
-Note:
-ダウンロードのステップが3回ある  
-手を上げるとチューターさんが助けてくれますよ！
-
----?image=bg/navy.png
-## ハンズオン ステップ1.
-### vue-cli インストール
-- シェルを立ち上げてこのコマンド
-```bash
-$ npm install -g vue-cli
-```
-- vue-cliがインストールされます
-
-Note:
-グローバルじゃなくてもいいけど説明しない。自己責任  
-vue-cliのパスが通ってれば大丈夫だと思う
-
-
----
-
-### ハンズオン中のお願い
-- 詰まったら片手を手を上げて
-- 前半の環境構築までは全員でやる
-- できた人は周りの人に教えてあげて！
-
-Note:
-・さっき手を上げてって言ったけど改めて  
-・後半はスライド見てどんどんいけるならやっちゃっていいよ  
-・終わった人は周りの人を助けてあげて
 
 ---?image=assets/profile.jpeg&position=bottom 2em right 3em&size=6em auto&color=#33B490
 
@@ -196,125 +49,7 @@ Note:
 
 ---
 
-一応社内インフラでこんなの作りました
 
----?image=bg/navy.png
-
-## ハンズオン ステップ2.
-### プロジェクトの作成
-
-```
-$ vue init webpack proj_name
-```
-
-- proj_name はお好みのプロジェクト名でどうぞ
-Note:
-よく hoge とかやります
-
----?image=bg/navy.png
-
-### 色々聞かれるので答えていく
-
-```
-$ vue init webpack proj_name
-? Project name > (空)
-? Project description (空)
-? Author (空)
-? Vue build → standalone 
-? Install vue-router? No
-? Use ESLint to lint your code? No
-? Set up unit tests No
-? Setup e2e tests with Nightwatch? No
-? Should we run `npm install` for you after the
- project has been created? (recommended) npm
-```
-
-@[2](package.jsonのnameになる。空だとinitしたときのproj_name)
-@[3](package.jsonのdescription。空だと"A Vue.js project")
-@[4](package.jsonのauther。空だとgit？の設定が入る)
-@[5](デフォルト選択肢でEnter。<br>runtimeのみ版はテンプレートが使えないのでやめよう)
-@[6](n : vue-routeなし)
-@[7](n : ESLintなし)
-@[8](n : unit testなし)
-@[9](n : e2e testなし)
-@[10-11](デフォルト選択肢でEnter : npm install される。<br>yarn使いならyarnを選んでもいい)
-
-Note:
-■ハイライトあり
-
-ちなみにこのステップで2回ダウンロードが走るので  
-一斉にやるともしかしたらかなり時間がかかるかも
-
----
-
-
-## <center><strike>Keep It Simple, stupid.</stike></center>
-
-Note:
-KISSの原則ってあるよね。
-
----
-
-
-# <center>Vue.js is...</center>
-
-Note:
-Vue.jsってどんなの？って話をします。
-最初にジョークをはさみますのでまあ気楽に。
-
----
-
-<center>
-![joke1](assets/joke1.png)
-
-<p>知ってるか？</p>
-
-(フロントエンド)<br>
-フレームワークは3つに分けられる
-</center>
-Note:
-Did you know, there are three kinds of frameworks?
-
----
-<center>
-![joke2](assets/joke2.png)
-
-<p>JSにHTMLを入れたやつ</p>
-
-HTMLにちょっとJSを入れたやつ
-
-</center>
-
-Note:
-Those what html into js,  
-those what js with html.
----
-<center>
-![joke3](assets/joke3.png)
-
-<p>やたらとメジャーバージョンが上がるやつ</p>
-
-この３つだ。あいつは……
-
-Note:
-and those what major upgrade too many.  
-Those are the three. And that -
-</center>
-
-
----
-
-## <strike>Vue.js ハンズオンです。 <br> 宗教戦争ではありません。</strike>
-
-Note:
-はい。  
-・ここ笑うところですよ  
-・深夜テンションでこの辺のスライドつい作ったけどウケなかったらどうしよう  
-・まぁ消さなかったんだけど  
-（ウケなかったら）  
-・忘れましょう。  
-
----
 ## Vue.jsのいいところ
 
 Note:
@@ -453,6 +188,108 @@ Reactと比べて、routerとvuexが公式なのは地味にいいところ
 Note:
 （次のスライドで起動ステップ）  
 まとめました
+
+
+---?image=bg/navy.png
+### 必須環境
+- npm がインストールされている
+ - node -v
+ - 6.x以上(8.x以上推奨)
+- **npmにパスが通っている**
+ - npm -v
+ - 3.x以上
+- **globalのnode_modules/.binにパスが通っている**
+ 
+```
+#今回だけnode_modules/.binのパスを通すなら
+SET PATH=$PATH:`npm bin -g`
+```
+
+---
+
+### 推奨環境
+- Mac/Linux OSであること
+ - Windowsは大変かも？
+
+---
+
+### いきなりですがvue-cliインストール
+- 発表と平行して環境構築
+- ダウンロードに時間がかかると予想中
+- うまくできない人は手をあげて！
+
+Note:
+ダウンロードのステップが3回ある  
+手を上げるとチューターさんが助けてくれますよ！
+
+---?image=bg/navy.png
+## ハンズオン ステップ1.
+### vue-cli インストール
+- シェルを立ち上げてこのコマンド
+```bash
+$ npm install -g vue-cli
+```
+- vue-cliがインストールされます
+
+Note:
+グローバルじゃなくてもいいけど説明しない。自己責任  
+vue-cliのパスが通ってれば大丈夫だと思う
+
+---?image=bg/navy.png
+
+## ハンズオン ステップ2.
+### プロジェクトの作成
+
+```
+$ vue init webpack proj_name
+```
+
+- proj_name はお好みのプロジェクト名でどうぞ
+Note:
+よく hoge とかやります
+
+---?image=bg/navy.png
+
+### 色々聞かれるので答えていく
+
+```
+$ vue init webpack proj_name
+? Project name > (空)
+? Project description (空)
+? Author (空)
+? Vue build → (デフォルト選択肢)
+? Install vue-router? **No**
+? Use ESLint to lint your code? **No**
+? Set up unit tests **No**
+? Setup e2e tests with Nightwatch? **No**
+? Should we run `npm install` for you after the
+ project has been created? (recommended) npm
+```
+
+@[2](package.jsonのnameになる。空だとinitしたときのproj_name)
+@[3](package.jsonのdescription。空だと"A Vue.js project")
+@[4](package.jsonのauther。空だとgit？の設定が入る)
+@[5](デフォルト選択肢でEnter。<br>runtimeのみ版はテンプレートが使えないのでやめよう)
+@[6](n : vue-routeなし)
+@[7](n : ESLintなし)
+@[8](n : unit testなし)
+@[9](n : e2e testなし)
+@[10-11](デフォルト選択肢でEnter : npm install される。<br>yarn使いならyarnを選んでもいい)
+
+Note:
+■ハイライトあり
+
+ちなみにこのステップで2回ダウンロードが走るので  
+一斉にやるともしかしたらかなり時間がかかるかも
+
+---
+
+
+## <center><strike>Keep It Simple, stupid.</stike></center>
+
+Note:
+KISSの原則ってあるよね。
+
 
 
 ---?image=bg/navy.png
@@ -836,18 +673,6 @@ Note:
 - なきゃないで動きはする
 - パフォーマンスに影響するらしい
 
----?image=bg/navy.png
-### 配列のキー（添字）を使う
-```
-<li v-for="(item,key) in lists">{{key}} - {{item}}</li>
-```
-
-<br>
-
-### 警告を消す
-```
-<li v-bind:key="item" v-for="item in lists">{{item}}</li>
-```
 
 ---?image=bg/navy.png
 
@@ -879,17 +704,6 @@ Note:
     <button v-on:click="pop">減らす</button>
 ```
 - 押すたびに増えたり減ったり
-
----?image=bg/navy.png
-### ループの中でもv-model
-
-&lt;template&gt;タグのループ中に追加
-```
-    <input v-model.number="lists[key]>
-```
-- 「ループの親配列のキー」でv-modelできる
- - 直接 v-model="item"とかできない
-
 
 ---
 ### 実行結果
@@ -956,29 +770,6 @@ Note:
 ```
 - 要素を取り出すのは {{オブジェクト.キー}}
 - 配列、オブジェクトの要素をループもOK
-
----?image=bg/navy.png
-
-### オブジェクトの値にv-model
-&lt;template&gt;タグに追加
-
-```
-<input v-model="user.name">
-```
-
-- オブジェクトのプロパティにv-modelできる
-
----
-### 実行結果
-<center>
-![](assets/5.handle-object.gif)
-
-<p>オブジェクトが扱える！</p>
-</center>
-
-
-Note:
-ハンズオンここまで
 
 ---
 
