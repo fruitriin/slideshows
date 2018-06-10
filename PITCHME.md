@@ -1,7 +1,7 @@
 ## 私がハマった<br>Vue.jsのショボいミス
 <center>果物リン@fruitriin</center>
-<div class="footer">2018/06/某日</div>
-
+<div class="footer">2018/05/25<br>
+加筆:2018/06/06</div>
 ---
 
 ### 自己紹介 果物リン@fruitriin
@@ -90,8 +90,8 @@ var app = new Vue({
   })
 })
 ```
-@[2-5](プロパティ = 関数として定義する記法)
-@[7-0](クラスのメソッド風として定義する記法)
+@[2-4](プロパティ = 関数として定義する記法)
+@[6-8](クラスのメソッド風として定義する記法)
 
 アロー関数を使わない方法二通り
 
@@ -120,7 +120,7 @@ methods: {
 ### Case3.単数形と複数形の間違い
 - propで呼び出し元から値を受け取ろう
 - あれ？絶対あるはずのものがない
-- あれ？あれ？あれれれ？
+- あれれれ？
 
 **正しいエントリポイントは  
 props, components, methods等です**  
@@ -131,7 +131,7 @@ props, components, methods等です**
 ### Case4. メソッドの階層間違い
 - 新しいメソッドを生やそう
 - あれ？絶対あるはずのものがない
-- あれ？あれ？あれれれ？
+- あれれれ？
 
 **methodsの直下が各メソッドの正しいエントリポイントです**  
 *うっかりメソッドを生やす階層を間違えた*
@@ -139,9 +139,9 @@ props, components, methods等です**
 ---
 
 ### Case5. 「Main」コンポーネント
-- なんかVue.js側が使ってるらしくてうまくいかない？
-- 特にエラーも出ずにただ使えなかった気がする
-- 前述の"Component"って書いてたせいのような気もしてきた。あとで試す
+- HTML5に「Main」タグがある
+- 同様の理由で「head」「header」  
+「footer」もNG
 
 ---
 
@@ -163,6 +163,7 @@ props, components, methods等です**
     bottom:0em;
     right:1em;
     float:right;
+    text-align:right;
 }
 .slides section{
     text-align:left;
