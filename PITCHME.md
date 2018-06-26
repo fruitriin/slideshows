@@ -84,29 +84,32 @@
 
 ## めっちゃ書くようになった
 - 今は月に10記事ぐらいが3ヶ月継続中
-- Qiitaに書けないテックなメモ、感想
-- Qiitaに書いた！っていうリンク
-- イベント参加の感想
-- 映画、書籍の感想
+ - Qiitaに書けないテックなメモ、感想
+ - Qiitaに書いた！っていうリンク
+ - イベント参加の感想
+ - 映画、書籍の感想
+
 etc, etc...
 
 ---
 
 ## リアクション最強
-<div class="attention font-big">
+<div class="attention font-overall">
 😍
 </div>
 
 ---?color=#2F2F44
 
 ## ノーリアクション最凶
-<div class="attention font-big">
+<div class="attention font-overall">
 😇
 </div>
 
 ---
 
-## ブログ書くの楽しい！
+<div class="attention font-big">
+ブログ書くの楽しい！
+</div>
 <div class="date">Thank you.</div>
 
 
