@@ -1,262 +1,409 @@
-# Vue Native<br>やってみた
-<div class="auther">果物リン@FruitRiin</div>
-<div class="date">
-2018/6/23  
-【第2回】React （JSフレームワーク他）  
-x ビアバッシュ 初心者勉強会 in秋葉原
+# あえて<br>PHPerにすすめる<br>Vue.js入門
+
+<div class="auther">
+株式会社ORATTA
+中島 凜 (果物リン@FruitRiin)
 </div>
 
+<div class="date">PHPConference関西2018</div>
+
+Note:
+- 東京でエンジニアをしている
+- きっかけPHPerKaigi2018でテンションが上がってCfPを申し込んだ
+- PHPカンファレンス関西という場に立てて光栄である
+- エンジニアリングがすごいわけではないと思う
+- 友達、会社、そして家族の支えでここにいることを感謝
+
+- トークとジェスチャーで数字や広がりに訴えかける
 ---
 
-## 自己紹介 - 果物リン
-- Twitter@FruitRiin
-- 某ソシャゲ会社勤務（開発運用保守）
-- 職業PHPer
+## 自己紹介
+
+icon.png
+
+- 株式会社ORATTA 
+ - ソシャゲの開発運営
+ - サーバーアプリケーションエンジニア
 - 趣味JSer
- - Vuejsはいいぞ
-- Vueハンズオン講師やってみた（1回）
-- PHPカンファレンス関西スピーカーやります！
+ - Vue.jsはいいぞ！
 
-気になった人は懇親会で聞いてみて！
+
+---
+
+## 株式会社ORATTA
+
+oratta.png
+
+戦国アスカZEROとか作ってます。  
+PWA版『クイック』をリリースしました！(2018.6)
 
 Note:
-自分のことはどうでもいいので飛ばします。
-
+お勤めなのでちょっと自社の紹介させてください。
 ---
 
-## 参加の経緯
-「（その他フロントエンド）言うても  
-　メインはReactなんじゃろ？  
-　Vueの出る幕なくない？」  
-「React vs Riotみたいになってる」  
-「なんだとRiotには負けてられるか」
+## 戦国アスカZERO
 
-<br>
+Asuka.png
 
-気づいたら申し込んでました
+なでなでするほど強くなるRPG
+App Store, Google Play, Chrome, Yahoo! Mobagee
+
 
 ---
-## テーマについて
-### Vueの魅力とは
+## 全国CM打ちました(2017.8)
 
-- 圧倒的学習コストの低さ
- - 開発メンバーの入れ替わりに強い
-   - （まだ）書けない人との協業
- - デザインに強いマークアップ担当との協業
-   - templateとscriptの分離
+CM.png
+
+この顔にピンときたらORATTAです。
+
+---
+## ORATTAの社内マスコット
+
+lydia.png
+
+この顔にピンときたらORATTAです  
+（最初にリリースしたゲームのナビキャラです）
 
 Note:
-Vueめっちゃ好きなんですよ。
-
-簡単に始められてサクッと作れるところとか、  
-HTMLとCSSの知識がそのままUIに適用できるところとか。
-
-つまり学習コストの低さが一番の魅力だと思っています。
-
-例えば、デザイン寄りのマークアップしてる人とか  
-そういう人がメンバーにいたり、協業してるようなチームに  
-Reactでの開発を求めるのは酷だなぁというシチュエーションで  
-VueはまさにFitしたフレームワークといえるでしょう。
-
-このあたり詳しく聞きたい人はあとで直接聞きに来てください。
+社内のSlack botなどでめっちゃ活躍してますが、
+一般にはほとんど見かけることはないかと思います
 
 ---
+## Next Project is Laravel
 
-### 刺さるテーマを考える
+laravel.png
 
-- Vueはこの場ではアウェイ
-- Reactを飲み込めた人に  
-あえてVueを勧めたい理由がない
-- なにかいいテーマはないものか
-
-
- 
----?color=#2F2F44
-
-
- <div class="attention font-overall">🤔</div>
-
----
-
-![](assets/BarthOfVueNative.png)
-
----?color=#2F2F44
-
- <div class="attention font-big">こ、これだ！</div>
-
-
----
-
-# How about<br>Vue Native
-
----
-## Key Features
-<center>
-![](assets/KeyFeatures.png)
-</center>
-
-！？
----
-
-## 界隈の反応
-
-<center>
-![](assets/VueNativeDependentReactNative.jpg)
-
-ですよね。
-
-</center>
-
-
----?color=#2F2F44
-
- <div class="attention font-overall">😇</div>
-
----
-
- <div class="attention font-big">
-Anyway, let’s do this
- </div>
-
-
----?color=#2F2F44
-
-## traped - need React
-```
-    at Module._compile (module.js:649:30)
-  status: 127,
-  signal: null,
-  output: [ null, <Buffer >, <Buffer > ],
-  pid: 2409,
-  stdout: <Buffer >,
-  stderr: <Buffer > }
-Please globally install create-react-native-app dependency
-```
-@[8](devendencyに入れないのかよ)
-
----?color=#2F2F44
-
-### traped - need watchman
-
-```
-> react-native-scripts start
-
-12:56:26: Unable to start server
-See https://git.io/v5vcn for more information, either install watchman or run the following snippet:
-  sudo sysctl -w kern.maxfiles=5242880
-  sudo sysctl -w kern.maxfilesperproc=524288
-
-npm ERR! code ELIFECYCLE
-```
-@[4](watchmanが必要です)
-
-
----?color=#2F2F44
-### traped - failed to install watchman
-
-```
-############################### 100.0%
-==> make html
-Error: An unexpected error occurred during the `brew link` step
-The formula built, but is not symlinked into /usr/local
-Permission denied @ dir_s_mkdir - /usr/local/Frameworks
-Error: Permission denied @ dir_s_mkdir - /usr/local/Frameworks
-```
-@[5](sudo mkdir /usr/localFrameworks からの再トライでOK)
-
----
-### Hello World
-
-<center>
-![](assets/VueNativeWorld.png)
- 動いた！
-</center>
----?color=#2F2F44
-
-### Vue Native Code
-```
-<template>
-  <view class="container">
-    <text class="text-color-primary">My Vue Native App</text>
-    <text class="">Hello World</text>
-  </view>
-</template>
-```
-
-めっちゃVueや！  
-※ scriptブロックももちろん使えます
+このロゴにピンときたらORATTAです？
 
 Note:
-今見えてるコードはテンプレートだけですが、
-scriptもcssもVueと同様に使えます。
-
----?color=#2F2F44
-## Basic Components
-### テキスト入力
-
-```
-<template>
-    <text-input
-        :style="{height: 40, borderColor: 'gray', borderWidth: 1}"
-        v-model="text"
-      />
-</template>
-```
-タグ1個！
-
----?color=#2F2F44
-
-## Basic Components
-### ボタン
-
-```
-<template>
-    <button
-        :on-press="onPressLearnMore"
-        title="Learn More"
-        color="#841584"
-        accessibility-label="Learn more about this purple button"
-    />
-</template>
-```
-タグ1個！（パラメータいっぱいあるけど！）
-
-
----?color=#2F2F44
-
-## Vue Native Facts
-- 「React Nativeのエコシステムが使えます」  
-「Vueは？」「そこそこ」🤔
-- 「Routerどうなった？」  
-「Vue Native Routerを用意しました」  
-「Vue Router死んでるじゃねーか！」
-
-既存のUIコンポーネントとかは全滅だと思います
+このロゴとゲーム作りのキーワードにピンときたらORATTAです！
 
 ---
+## We are Hireling
 
-## Vue Native RoadMap
+orattalogo.png
 
-- Slotこれからです
-- デバッグちょい簡単にします
-- $emitもこれからやります」 
- - 「子から親にイベント飛ばねーのかよ！」
-- etc, etc....
+このロゴにピンときたらORATTAです。
+Note:
+会社のロゴです。
+東京の会社ですが、ゲームづくりに興味がある人は会社のホームページも見てみてください。
+
+これは余談なんですが、私が採用されたきっかけはPHP BLTっていうイベントでうちのリーダーと意気投合しまして、
+「会社の採用ページの申し込みフォームの備考に僕の名前書いて」ってリーダーに言われてたので
+次の日申し込んだらわりとスルッと入ったみたいなエピソードがあります。
+
+ちょうど拡大の時期なので、ゲームが好きなら積極的に採用するよって言ってましたよ！
 
 
 ---
-## 感想
-
-- とはいえ公式のBasic Componentsを見た感じ  
-思ったよりVueっぽい
- - 意外とマトモなのでは？
-- React Nativeがワンチャンあった
-- Vue Nativeワンチャンあるかも！
-
----
-
 
 <div class="attention font-big">
-Vueはいいぞ 💪
+はい。
 </div>
-<div class="date">Fin.</div>
+Note:
+会社紹介おわり。お勤め終了でございます。
+
+
+---
+# あえて<br>PHPerにすすめる<br>Vue.js入門
+
+
+Note:
+戻ってきました。
+
+---
+## お品書き
+- 最初のPHP経験を思い出して
+- なぜ「Vue.js」なのか
+- Vueの始め方 Laravel編
+- Vue.js Syntax ライブコーディング
+- 初学者へ送る4つのヒント
+- My Fails of the Vue
+
+
+---
+
+# 最初のPHP経験は？
+
+---
+
+## 初めてのPHP経験は？
+- 初めてPHPに触れた頃を思い出してみてください
+ - PHPといえばテンプレートエンジンだった
+  - echo "&lt;html&gt;"; 😇
+ - smarty とかでHTMLを書く
+ - JSは片手間に書くもの
+
+とにかく我々もUXを提供していた！
+
+---
+
+<div class="attention font-big">
+few years later...
+</div>
+
+---
+## 2018年におけるPHP
+
+- モダンなPHPの主な仕事といえばAPIサーバー
+ - ajaxで呼ばれてjsonを返す
+- テンプレートエンジンでHTMLを返す
+ - Twig, Jade
+
+---
+
+## 2018年におけるWeb
+
+- とりあえずインタラクティブ
+- とりあえずajax
+- なんにせよ動く
+
+---
+
+<div class="attention font-big">
+PHPは静的ページしか  
+提供できない
+</div>
+
+---
+
+<div class="attention font-big">
+JSが必要
+</div>
+
+---
+
+## やりいこと ＝ APIを作ること？
+
+- フロントを作るのが好きな人もきっといるはず
+ - とはいえjQueryはつらい
+ - BootStrapでは物足りない
+ 
+
+そんなあなたに是非今日のセッションを聞いてほしい
+
+Note:
+- APIがないとフロントエンドは成り立ちません  
+いつも感謝しています
+- フロントを作るのも楽しいぞっていう方に聞いてほしい
+- フロント？jQueryだよね？っていう人にも
+
+---
+
+# なぜ「Vue.js」？
+
+---
+
+## 2018年における<br>Frontend Framework 3選
+
+ Angular.png
+ React.png
+ Vue.png
+
+激動の2015〜2017年を経て  
+この3つで落ち着いてきた
+
+Note:
+- GoogleのトレンドグラフだとReactがダントツ
+- 次はAngular、ちょっとあけてVue.jsがきてる
+- backbone.js？あいつは４番目
+- Github Star数は先日Vue.jsがReactを抜きました！
+
+---
+
+## どれがいい？
+
+「Laravel with Vue」
+```
+While Laravel (中略) does provide a basic starting point using 
+Bootstrap and *Vue* that will be helpful for many applications. 
+```
+
+あのLaravelがVueを公式にプロジェクトに含めている！
+
+---
+
+## Vueはいいぞ
+
+Vue.png
+
+---
+
+<div class="attention font-big">
+はい。
+</div>
+
+---
+
+# Vueの始め方 Laravel編
+
+---
+## Laravelで始めるVueの環境構築
+- ……は、Qiitaに書いたのでダイジェストで
+- [LaravelからVue\.jsを使う最短レシピとTips \- Qiita](https://qiita.com/fruitriin/items/e0f2c9aa035c3ff2c874)
+- 新規Laravel5.6プロジェクトから3ステップでOK
+
+---
+## 最短レシピダイジェスト
+### Vueをインストール
+- Projectのディレクトリへ移動してnpm install
+```
+npm install
+```
+- laravelの package.json に従ってインストール
+ - composer.json みたいなやつ
+
+---
+## 最短レシピダイジェスト
+### Bladeを修正
+- jsとcss読み込み用のタグを追加
+- CSRFトークンをVue.jsへコードを追加
+ - コードは割愛！それぞれ一行追加でOK
+
+---
+## 最短レシピダイジェスト
+### 開発環境を起動
+- LaravelとVueの開発環境を起動
+```
+php artisan serve &
+npm run dev
+```
+- いろいろいい感じにしてくれる
+
+---
+
+# Vue.js Live Coding 
+
+Note:
+ライブコーディングしていきましょう
+---
+## リアルタイム更新
+
+HMR.gif
+
+- テンプレート部分を編集して保存すると即反映
+- ブラウザのリロードなしで確認
+ 
+地味に便利！
+
+- methodsの編集とかは読み込まれないことがある
+---
+## 変数展開と双方向バインド
+
+variable-bind.gif
+
+- `{{hoge}}` で変数展開
+- `<input v-model="hoge">` で双方向バインド
+
+めっちゃ便利！
+
+---
+## イベントとメソッド
+
+event-and-methods.gif
+
+- タグに `v-on:click="show()"` でクリック時にshow()
+ - click, change, submit... DOMのイベントハンドラ
+
+---
+## 表示/非表示、配列とオブイェクトのループ
+
+if-and-loops.gif
+
+- タグに `v-if="isShow"` で表示非表示
+- タグに `v-for="elem in elems"` でループ表示
+ - 配列の要素、オブジェクトの要素どっちもOK！
+
+---
+
+<div class="attention font-big">
+Vue.js はいいぞ！
+</div>
+
+Note:
+めっちゃよくないですか？
+
+
+---
+
+# Vueを始める４つのヒント
+
+Note:
+- 小さく始めよう
+- 大きくしよう
+- これだけ覚えるべきES6
+- jQueryと併用するべからず
+
+---
+## 小さく始めよう
+- 最初はライブラリを極力入れないのがおすすめ
+ - 「Vue + Vue-router + Vuexがデフォ？」  
+「一度忘れていいよ」
+- シングルコンポーネントで作る
+ - コンポーネント分割は慣れてから
+
+---
+## 大きくしよう
+- vue-cli でプロジェクトを作って構成を見比べる
+ - vue-cli-ui がまじですごい
+
+- 重厚なWAFっぽいのに乗っかりたかったらNuxt
+
+---
+
+## 大きくしよう
+### Nuxt？
+- Vue関係全部入りフレームワーク
+- ゴリゴリフロントやるならNuxtで決まり
+- 静的サイトジェネレータ機能
+ - SSRに用事がなくてもNuxtはいいぞ
+- 「PHPどこいった？」「APIです」「(´・ω・｀)」
+
+---
+
+## これだけは覚えるべきES6
+- 変数宣言 let, const
+- テンプレートリテラル
+- アローファンクション
+- Objectのメソッド
+
+ES6(ES2015)チートシート - Qiita
+https://qiita.com/morrr/items/883cb902ccda37e840bc
+
+---
+## jQueryと併用するべからず
+- JSでDOMを直接書き換えると非常に危険
+
+```
+Virtual DOMの基本アプローチは仮想DOM -> 生のDOM変換であり、
+この手続に依存する限り生DOMを触ることは推奨されません。
+patchに巻き込まれると、知らないうちに
+イベントハンドラごと吹き飛ぶ可能性があります。
+しかも内部のアルゴリズムに依存するので非常にデバッグ困難です。
+```
+なぜ仮想DOMという概念が俺達の魂を震えさせるのか - Qiita (@mizchi)
+https://qiita.com/mizchi/items/4d25bc26def1719d52e6
+
+---
+# My Fails of the Vue
+
+- 単数形と複数形の間違い
+- メソッドの階層間違い
+- 「Main」コンポーネントは作れない
+- なんでもアロー関数にしたらだめだった
+
+
+---
+# My Work
+
+MasterViewer.vue.gif
+
+---
+
+<div class="attention font-big">
+さあVue.jsを  
+やってみよう！
+</div>
+<div class="date">
+Thanks.
+</div>
