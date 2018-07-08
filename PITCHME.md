@@ -11,11 +11,11 @@ Note:
 - 東京でエンジニアをしている
 - きっかけPHPerKaigi2018でテンションが上がってCfPを申し込んだ
 - PHPカンファレンス関西という場に立てて光栄である
----
+---?image=assets/selfy.jpeg
 
 ## 自己紹介
+![](assets/selfy.jpg)
 
-icon.png
 
 - 株式会社ORATTA 
  - ソシャゲの開発運営
@@ -28,7 +28,9 @@ icon.png
 
 ## 株式会社ORATTA
 
-oratta.png
+<center>
+![](assets/oratta.jpg)
+</center>
 
 戦国アスカZEROとか作ってます。  
 PWA版『クイック』をリリースしました！(2018.6)
@@ -39,23 +41,27 @@ Note:
 
 ## 戦国アスカZERO
 
-Asuka.png
+<center>
+![](assets/asukazero.png)
+</center>
 
-なでなでするほど強くなるRPG
+なでなでするほど強くなるRPG  
 App Store, Google Play, Chrome, Yahoo! Mobagee
 
 
 ---
-## 全国CM打ちました(2017.8)
-
-CM.png
-
+## 全国CM打ちました(2017.9)
+<center>
+![](assets/asuka_cm.png)
+</center>
 この顔にピンときたらORATTAです。
 
 ---
 ## Next Project is Laravel
-
-laravel.png
+<center>
+![](assets/laravel.png)
+with Game
+</center>
 
 このロゴにピンときたらORATTAです？
 
@@ -65,8 +71,9 @@ Note:
 ---
 ## We are Hireling
 
-orattalogo.png
-
+<center>
+![](assets/oratta_logo.png)
+</center>
 このロゴにピンときたらORATTAです。
 Note:
 東京の会社ですが、ゲームづくりに興味がある人は会社のホームページも見てみてください。
