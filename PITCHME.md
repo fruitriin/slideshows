@@ -14,8 +14,9 @@ Note:
 ---?image=assets/selfy.jpeg
 
 ## 自己紹介
+<div style="float:right; width:200px">
 ![](assets/selfy.jpg)
-
+</div>
 
 - 株式会社ORATTA 
  - ソシャゲの開発運営
@@ -314,8 +315,6 @@ Vue.js はいいぞ！
 
 - Vue.jsを始める4つのヒント - Qiita
 - My Fails of the Vue - Qiita
-
-
 
 ---
 <div class="attention font-big">
