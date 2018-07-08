@@ -1,7 +1,7 @@
 # あえて<br>PHPerにすすめる<br>Vue.js入門
 
 <div class="auther">
-株式会社ORATTA
+株式会社ORATTA  
 中島 凜 (果物リン@FruitRiin)
 </div>
 
@@ -11,6 +11,7 @@ Note:
 - 東京でエンジニアをしている
 - きっかけPHPerKaigi2018でテンションが上がってCfPを申し込んだ
 - PHPカンファレンス関西という場に立てて光栄である
+
 ---?image=assets/selfy.jpeg
 
 ## 自己紹介
@@ -19,10 +20,12 @@ Note:
 </div>
 
 - 株式会社ORATTA 
- - ソシャゲの開発運営
+ - ソシャゲの企画開発運営
  - サーバーアプリケーションエンジニア
 - 趣味JSer
  - Vue.jsはいいぞ！
+
+Note:
 
 
 ---
@@ -34,10 +37,11 @@ Note:
 </center>
 
 戦国アスカZEROとか作ってます。  
-PWA版『クイック』をリリースしました！(2018.6)
+PWA版『戦国アスカZEROクイック』をリリースしました！(2018.6)
 
 Note:
 お勤めなのでちょっと自社の紹介させてください。
+
 ---
 
 ## 戦国アスカZERO
@@ -47,8 +51,8 @@ Note:
 </center>
 
 なでなでするほど強くなるRPG  
-App Store, Google Play, Chrome, Yahoo! Mobagee
-
+App Store, Google Play  
+Chrome, Yahoo! Mobagee
 
 ---
 ## 全国CM打ちました(2017.9)
@@ -56,6 +60,9 @@ App Store, Google Play, Chrome, Yahoo! Mobagee
 ![](assets/asuka_cm.png)
 </center>
 この顔にピンときたらORATTAです。
+
+Note:
+一般公開用スライドでは非表示にすること
 
 ---
 ## Next Project is Laravel
@@ -79,6 +86,7 @@ Note:
 Note:
 東京の会社ですが、ゲームづくりに興味がある人は会社のホームページも見てみてください。
 
+
 ---
 
 <div class="attention font-big">
@@ -96,10 +104,10 @@ Note:
 
 ---
 ## お品書き
-- 最初のPHP経験を思い出して
+- あなたにとっての最初のPHP経験は？
 - なぜ「Vue.js」なのか
 - Vueの始め方 Laravel編
-- Vue.js Syntax ライブコーディング
+- Vue.js 基本のSyntax紹介（ライブコーディング）
 - 付録
 
 ---
@@ -117,6 +125,15 @@ Note:
 
 とにかく我々もUXを提供していた！
 
+Note:
+- 私にとっても初めてのPHP
+- 大学でCとJavaを学んでいた
+- TwitterAPIを叩いてリストに表示してテキストエリアから登録したかった
+- そのためのPHP
+- echo HTMLとか本当にやった
+- 最初の仕事も smartyとかで、jsは片手間で……
+- とにかくUXを
+
 ---
 
 <div class="attention font-big">
@@ -131,6 +148,14 @@ few years later...
 - テンプレートエンジンでHTMLを返す
  - Twig, Jade
 
+Note:
+- 最近はとりあえずフレームワークに乗っかる 
+- Laravel, Symphonyとかいろいろ
+- さらに最近は要件的に json を返すのが主な仕事ってところも増えてるのでは？
+- もちろんテンプレートエンジンを使う仕事だってあるでしょう
+- 適材適所
+
+
 ---
 
 ## 2018年におけるWeb
@@ -138,6 +163,11 @@ few years later...
 - とりあえずインタラクティブ
 - とりあえずajax
 - なんにせよ動く
+
+Note:
+- とはいえとはいえ
+- とりあえず触ってその場で動くのが今のWebだ
+- ちょっとしたことでページ遷移はさみたくない
 
 ---
 
@@ -156,18 +186,23 @@ JSが必要
 
 ## やりいこと ＝ APIを作ること？
 
-- フロントを作るのが好きな人もきっといるはず
- - とはいえjQueryはつらい
- - BootStrapでは物足りない
- 
+ちょっとだけ考えてみてください  
 
-そんなあなたに是非今日のセッションを聞いてほしい
+「フロント部分を作るのも好き！」  
+そんな人もきっといるはず
+
+そんなあなたに  
+是非今日のセッションを聞いてください
 
 Note:
 - APIがないとフロントエンドは成り立ちません  
-いつも感謝しています
+- データを加工するのが好きな人もきっといると思う、それでいい
+
 - フロントを作るのも楽しいぞっていう方に聞いてほしい
-- フロント？jQueryだよね？っていう人にも
+ - フロント？jQueryだよね？
+ - jQueryつらいよね
+ - Bootstrapでは物足りないなあ
+
 
 ---
 
@@ -177,18 +212,15 @@ Note:
 
 ## 2018年における<br>Frontend Framework 3選
 
- Angular.png
- React.png
- Vue.png
+![](assets/vue_react_angular.jpg)
 
 激動の2015〜2017年を経て  
 この3つで落ち着いてきた
 
 Note:
+- ここしばらくフロントエンド界隈はまさに戦国時代
 - GoogleのトレンドグラフだとReactがダントツ
 - 次はAngular、ちょっとあけてVue.jsがきてる
-- backbone.js？あいつは４番目
-- Github Star数は先日Vue.jsがReactを抜きました！
 
 ---
 
@@ -203,16 +235,20 @@ Bootstrap and *Vue* that will be helpful for many applications.
 あのLaravelがVueを公式にプロジェクトに含めている！
 
 ---
-
-## Vueはいいぞ
-
-Vue.png
+![](assets/vueStars.png)
 
 ---
 
-<div class="attention font-big">
-はい。
-</div>
+## Vue.jsでしょ！
+
+![](assets/vue.png)
+
+
+Note:
+- 実際のところ、現在のシェア率でいうとReactが圧倒的に強い
+ - ReactはJSXという記法でJavaScriptの中にHTMLを書く
+- VueとAngularはHTMLに拡張プロパティを書くだけでいい
+- 中でもVueは規模感小さめ〜中くらいで力を発揮する
 
 ---
 
@@ -287,13 +323,17 @@ event-and-methods.gif
  - click, change, submit... DOMのイベントハンドラ
 
 ---
-## 表示/非表示、配列とオブイェクトのループ
+## 表示/非表示、配列とオブジェクトのループ
 
 if-and-loops.gif
 
 - タグに `v-if="isShow"` で表示非表示
 - タグに `v-for="elem in elems"` でループ表示
  - 配列の要素、オブジェクトの要素どっちもOK！
+
+---
+## Scoped CSS
+
 
 
 ---
